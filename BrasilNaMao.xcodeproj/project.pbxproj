@@ -12,9 +12,12 @@
 		9CC72AD721D3FC9E0048C37B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72AD521D3FC9E0048C37B /* Main.storyboard */; };
 		9CC72AD921D3FCA00048C37B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72AD821D3FCA00048C37B /* Assets.xcassets */; };
 		9CC72ADC21D3FCA00048C37B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72ADA21D3FCA00048C37B /* LaunchScreen.storyboard */; };
+		9CC72AE421D403910048C37B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AE321D403900048C37B /* MenuViewController.swift */; };
+		F5BFEBE7A01A7DAB52741CE8 /* Pods_BrasilNaMao.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AADC22B426E88D5C07BF21 /* Pods_BrasilNaMao.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85AADC22B426E88D5C07BF21 /* Pods_BrasilNaMao.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrasilNaMao.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC72ACE21D3FC9E0048C37B /* BrasilNaMao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrasilNaMao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC72AD121D3FC9E0048C37B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC72AD321D3FC9E0048C37B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,10 @@
 		9CC72AD821D3FCA00048C37B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CC72ADB21D3FCA00048C37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CC72ADD21D3FCA00048C37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CC72AE321D403900048C37B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		9CC72AE921D406F20048C37B /* BrasilNaMao-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BrasilNaMao-Bridging-Header.h"; sourceTree = "<group>"; };
+		A810A739BC156B5D8DBFF540 /* Pods-BrasilNaMao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrasilNaMao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrasilNaMao/Pods-BrasilNaMao.debug.xcconfig"; sourceTree = "<group>"; };
+		B6A592A3410667D849CA76C1 /* Pods-BrasilNaMao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrasilNaMao.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrasilNaMao/Pods-BrasilNaMao.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +36,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5BFEBE7A01A7DAB52741CE8 /* Pods_BrasilNaMao.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		175B9FAE24EDED81C34B6235 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A810A739BC156B5D8DBFF540 /* Pods-BrasilNaMao.debug.xcconfig */,
+				B6A592A3410667D849CA76C1 /* Pods-BrasilNaMao.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9CC72AC521D3FC9E0048C37B = {
 			isa = PBXGroup;
 			children = (
 				9CC72AD021D3FC9E0048C37B /* BrasilNaMao */,
 				9CC72ACF21D3FC9E0048C37B /* Products */,
+				175B9FAE24EDED81C34B6235 /* Pods */,
+				AB33340FEB4CCA7DFCD717EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +73,10 @@
 		9CC72AD021D3FC9E0048C37B /* BrasilNaMao */ = {
 			isa = PBXGroup;
 			children = (
+				9CC72AE921D406F20048C37B /* BrasilNaMao-Bridging-Header.h */,
+				9CC72AE721D404860048C37B /* Controller */,
+				9CC72AE621D404800048C37B /* Model */,
+				9CC72AE521D404740048C37B /* View */,
 				9CC72AD121D3FC9E0048C37B /* AppDelegate.swift */,
 				9CC72AD321D3FC9E0048C37B /* ViewController.swift */,
 				9CC72AD521D3FC9E0048C37B /* Main.storyboard */,
@@ -64,6 +87,44 @@
 			path = BrasilNaMao;
 			sourceTree = "<group>";
 		};
+		9CC72AE521D404740048C37B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9CC72AE621D404800048C37B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9CC72AE721D404860048C37B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9CC72AE821D404900048C37B /* Menu */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9CC72AE821D404900048C37B /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				9CC72AE321D403900048C37B /* MenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		AB33340FEB4CCA7DFCD717EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85AADC22B426E88D5C07BF21 /* Pods_BrasilNaMao.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +132,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CC72AE021D3FCA00048C37B /* Build configuration list for PBXNativeTarget "BrasilNaMao" */;
 			buildPhases = (
+				5ACAF3E24A2D83550D95BD0E /* [CP] Check Pods Manifest.lock */,
 				9CC72ACA21D3FC9E0048C37B /* Sources */,
 				9CC72ACB21D3FC9E0048C37B /* Frameworks */,
 				9CC72ACC21D3FC9E0048C37B /* Resources */,
+				51D8E5A189C7A2DAD649AC2D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,12 +193,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		51D8E5A189C7A2DAD649AC2D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BrasilNaMao/Pods-BrasilNaMao-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BrasilNaMao/Pods-BrasilNaMao-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5ACAF3E24A2D83550D95BD0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BrasilNaMao-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9CC72ACA21D3FC9E0048C37B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9CC72AD421D3FC9E0048C37B /* ViewController.swift in Sources */,
+				9CC72AE421D403910048C37B /* MenuViewController.swift in Sources */,
 				9CC72AD221D3FC9E0048C37B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +391,7 @@
 		};
 		9CC72AE121D3FCA00048C37B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A810A739BC156B5D8DBFF540 /* Pods-BrasilNaMao.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -292,12 +404,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.oliveiracode.BrasilNaMao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		9CC72AE221D3FCA00048C37B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6A592A3410667D849CA76C1 /* Pods-BrasilNaMao.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -310,7 +423,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.oliveiracode.BrasilNaMao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
