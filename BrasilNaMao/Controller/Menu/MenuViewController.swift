@@ -1,9 +1,9 @@
 //
 //  MenuViewController.swift
-//  LifeHome
+//  BrasilNaMao
 //
-//  Created by Leandro Oliveira on 2018-05-31.
-//  Copyright © 2018 Leandro Oliveira. All rights reserved.
+//  Created by Leandro Oliveira on 2018-12-26.
+//  Copyright © 2018 OliveiraCode Technologies. All rights reserved.
 //
 
 import UIKit
@@ -20,14 +20,14 @@ class  MenuViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let nameMenu:[String] = [NSLocalizedString("Tela Inicial", comment: "Home"),
-                             NSLocalizedString("Meu Anuncio", comment: "MyAd"),
-                             NSLocalizedString("Eventos", comment: "Events"),
-                             NSLocalizedString("Recomendações", comment: "Recomendations"),
-                             NSLocalizedString("Compartilhar", comment: "Share"),
-                             NSLocalizedString("Configuração", comment: "Settings"),
-                             NSLocalizedString("Fale Conosco", comment: "Contact us"),
-                             NSLocalizedString("Sobre", comment: "About")]
+    let nameMenu:[String] = [NSLocalizedString("Home", comment: "Home"),
+                             NSLocalizedString("My Ad", comment: "MyAd"),
+                             NSLocalizedString("Events", comment: "Events"),
+                             NSLocalizedString("Tips", comment: "Tips"),
+                             NSLocalizedString("Share", comment: "Share"),
+                             NSLocalizedString("Settings", comment: "Settings"),
+                             NSLocalizedString("Contact us", comment: "Contact us"),
+                             NSLocalizedString("About", comment: "About")]
     
     
     
@@ -98,20 +98,25 @@ class  MenuViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-        if indexPath.row == 0  {
+        switch indexPath.row {
+        case 0:
             performSegue(withIdentifier: "showHomeVC", sender: nil)
-        }
-        
-        if indexPath.row == 1  {
-            performSegue(withIdentifier: "showProfileVC", sender: nil)
-        }
-        
-        if indexPath.row == 2  {
+        case 1:
+            performSegue(withIdentifier: "showMyAdVC", sender: nil)
+        case 2:
+            performSegue(withIdentifier: "showEventsVC", sender: nil)
+        case 3:
+            performSegue(withIdentifier: "showTipsVC", sender: nil)
+        case 4:
+            performSegue(withIdentifier: "showShareVC", sender: nil)
+        case 5:
             performSegue(withIdentifier: "showSettingsVC", sender: nil)
-        }
-        
-        if indexPath.row == 3  {
+        case 6:
+            performSegue(withIdentifier: "showContactUsVC", sender: nil)
+        case 7:
             performSegue(withIdentifier: "showAboutVC", sender: nil)
+        default:
+            print("done")
         }
         
     }

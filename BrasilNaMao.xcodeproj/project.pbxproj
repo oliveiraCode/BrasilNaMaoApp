@@ -8,11 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		9CC72AD221D3FC9E0048C37B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AD121D3FC9E0048C37B /* AppDelegate.swift */; };
-		9CC72AD421D3FC9E0048C37B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AD321D3FC9E0048C37B /* ViewController.swift */; };
+		9CC72AD421D3FC9E0048C37B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AD321D3FC9E0048C37B /* ListViewController.swift */; };
 		9CC72AD721D3FC9E0048C37B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72AD521D3FC9E0048C37B /* Main.storyboard */; };
 		9CC72AD921D3FCA00048C37B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72AD821D3FCA00048C37B /* Assets.xcassets */; };
 		9CC72ADC21D3FCA00048C37B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72ADA21D3FCA00048C37B /* LaunchScreen.storyboard */; };
 		9CC72AE421D403910048C37B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AE321D403900048C37B /* MenuViewController.swift */; };
+		9CC72AEC21D43AB90048C37B /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AEA21D43AB90048C37B /* AdCell.swift */; };
+		9CC72AEF21D43CAB0048C37B /* AdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72AEE21D43CAB0048C37B /* AdCell.xib */; };
+		9CC72AF321D43E930048C37B /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AF021D43E930048C37B /* Ad.swift */; };
+		9CC72AF421D43E930048C37B /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AF121D43E930048C37B /* Address.swift */; };
+		9CC72AF521D43E930048C37B /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AF221D43E930048C37B /* Contact.swift */; };
+		9CC72AF721D440CD0048C37B /* MyAdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AF621D440CD0048C37B /* MyAdTableViewController.swift */; };
+		9CC72AF921D44E580048C37B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AF821D44E580048C37B /* SettingsViewController.swift */; };
+		9CC72AFB21D44E6E0048C37B /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AFA21D44E6E0048C37B /* ContactUsViewController.swift */; };
+		9CC72AFD21D44E780048C37B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AFC21D44E780048C37B /* AboutViewController.swift */; };
+		9CC72AFF21D44E8A0048C37B /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AFE21D44E8A0048C37B /* ShareViewController.swift */; };
+		9CC72B0121D44EBA0048C37B /* TipsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72B0021D44EBA0048C37B /* TipsTableViewController.swift */; };
+		9CC72B0321D44ED50048C37B /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72B0221D44ED50048C37B /* EventsTableViewController.swift */; };
+		9CC72B0521D4507F0048C37B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72B0421D4507F0048C37B /* MapViewController.swift */; };
 		F5BFEBE7A01A7DAB52741CE8 /* Pods_BrasilNaMao.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AADC22B426E88D5C07BF21 /* Pods_BrasilNaMao.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,13 +33,26 @@
 		85AADC22B426E88D5C07BF21 /* Pods_BrasilNaMao.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrasilNaMao.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC72ACE21D3FC9E0048C37B /* BrasilNaMao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrasilNaMao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC72AD121D3FC9E0048C37B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9CC72AD321D3FC9E0048C37B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9CC72AD321D3FC9E0048C37B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9CC72AD621D3FC9E0048C37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9CC72AD821D3FCA00048C37B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CC72ADB21D3FCA00048C37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CC72ADD21D3FCA00048C37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CC72AE321D403900048C37B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		9CC72AE921D406F20048C37B /* BrasilNaMao-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BrasilNaMao-Bridging-Header.h"; sourceTree = "<group>"; };
+		9CC72AEA21D43AB90048C37B /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
+		9CC72AEE21D43CAB0048C37B /* AdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdCell.xib; sourceTree = "<group>"; };
+		9CC72AF021D43E930048C37B /* Ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
+		9CC72AF121D43E930048C37B /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		9CC72AF221D43E930048C37B /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		9CC72AF621D440CD0048C37B /* MyAdTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdTableViewController.swift; sourceTree = "<group>"; };
+		9CC72AF821D44E580048C37B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9CC72AFA21D44E6E0048C37B /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		9CC72AFC21D44E780048C37B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		9CC72AFE21D44E8A0048C37B /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		9CC72B0021D44EBA0048C37B /* TipsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsTableViewController.swift; sourceTree = "<group>"; };
+		9CC72B0221D44ED50048C37B /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		9CC72B0421D4507F0048C37B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A810A739BC156B5D8DBFF540 /* Pods-BrasilNaMao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrasilNaMao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrasilNaMao/Pods-BrasilNaMao.debug.xcconfig"; sourceTree = "<group>"; };
 		B6A592A3410667D849CA76C1 /* Pods-BrasilNaMao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrasilNaMao.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrasilNaMao/Pods-BrasilNaMao.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +104,6 @@
 				9CC72AE621D404800048C37B /* Model */,
 				9CC72AE521D404740048C37B /* View */,
 				9CC72AD121D3FC9E0048C37B /* AppDelegate.swift */,
-				9CC72AD321D3FC9E0048C37B /* ViewController.swift */,
 				9CC72AD521D3FC9E0048C37B /* Main.storyboard */,
 				9CC72AD821D3FCA00048C37B /* Assets.xcassets */,
 				9CC72ADA21D3FCA00048C37B /* LaunchScreen.storyboard */,
@@ -90,6 +115,8 @@
 		9CC72AE521D404740048C37B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9CC72AEA21D43AB90048C37B /* AdCell.swift */,
+				9CC72AEE21D43CAB0048C37B /* AdCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -97,6 +124,9 @@
 		9CC72AE621D404800048C37B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9CC72AF021D43E930048C37B /* Ad.swift */,
+				9CC72AF121D43E930048C37B /* Address.swift */,
+				9CC72AF221D43E930048C37B /* Contact.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -105,6 +135,15 @@
 			isa = PBXGroup;
 			children = (
 				9CC72AE821D404900048C37B /* Menu */,
+				9CC72AF821D44E580048C37B /* SettingsViewController.swift */,
+				9CC72AF621D440CD0048C37B /* MyAdTableViewController.swift */,
+				9CC72AD321D3FC9E0048C37B /* ListViewController.swift */,
+				9CC72AFA21D44E6E0048C37B /* ContactUsViewController.swift */,
+				9CC72AFC21D44E780048C37B /* AboutViewController.swift */,
+				9CC72AFE21D44E8A0048C37B /* ShareViewController.swift */,
+				9CC72B0021D44EBA0048C37B /* TipsTableViewController.swift */,
+				9CC72B0221D44ED50048C37B /* EventsTableViewController.swift */,
+				9CC72B0421D4507F0048C37B /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CC72ADC21D3FCA00048C37B /* LaunchScreen.storyboard in Resources */,
+				9CC72AEF21D43CAB0048C37B /* AdCell.xib in Resources */,
 				9CC72AD921D3FCA00048C37B /* Assets.xcassets in Resources */,
 				9CC72AD721D3FC9E0048C37B /* Main.storyboard in Resources */,
 			);
@@ -245,9 +285,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CC72AD421D3FC9E0048C37B /* ViewController.swift in Sources */,
+				9CC72AF421D43E930048C37B /* Address.swift in Sources */,
+				9CC72AD421D3FC9E0048C37B /* ListViewController.swift in Sources */,
+				9CC72AFD21D44E780048C37B /* AboutViewController.swift in Sources */,
+				9CC72AF721D440CD0048C37B /* MyAdTableViewController.swift in Sources */,
+				9CC72AEC21D43AB90048C37B /* AdCell.swift in Sources */,
 				9CC72AE421D403910048C37B /* MenuViewController.swift in Sources */,
+				9CC72B0121D44EBA0048C37B /* TipsTableViewController.swift in Sources */,
+				9CC72AFF21D44E8A0048C37B /* ShareViewController.swift in Sources */,
+				9CC72B0321D44ED50048C37B /* EventsTableViewController.swift in Sources */,
+				9CC72AF321D43E930048C37B /* Ad.swift in Sources */,
 				9CC72AD221D3FC9E0048C37B /* AppDelegate.swift in Sources */,
+				9CC72AFB21D44E6E0048C37B /* ContactUsViewController.swift in Sources */,
+				9CC72AF521D43E930048C37B /* Contact.swift in Sources */,
+				9CC72B0521D4507F0048C37B /* MapViewController.swift in Sources */,
+				9CC72AF921D44E580048C37B /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
