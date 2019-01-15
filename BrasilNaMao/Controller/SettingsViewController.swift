@@ -22,6 +22,13 @@ class SettingsViewController: UIViewController {
     }
     
     
+    @IBAction func addCategoryPressed(_ sender: Any) {
+        print("categoria")
+        AlertServiceADM.addCategory(in: self) { category in
+            print(category)
+            FIRFirestoreService.shared.createCategory(for: category, in: .category)
+        }
+    }
     //MARK - SideMenu Method
     func sideMenus() {
         if revealViewController() != nil {

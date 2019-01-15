@@ -21,7 +21,6 @@ class  MenuViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let nameMenu:[String] = [NSLocalizedString("Home", comment: "Home"),
-                             NSLocalizedString("My Ad", comment: "MyAd"),
                              NSLocalizedString("Events", comment: "Events"),
                              NSLocalizedString("Tips", comment: "Tips"),
                              NSLocalizedString("Share", comment: "Share"),
@@ -39,7 +38,7 @@ class  MenuViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         changeTitleNavigatorBar()
         setupImgProfile()
-        
+    
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -102,18 +101,16 @@ class  MenuViewController: UIViewController, UITableViewDelegate, UITableViewDat
         case 0:
             performSegue(withIdentifier: "showHomeVC", sender: nil)
         case 1:
-            performSegue(withIdentifier: "showMyAdVC", sender: nil)
-        case 2:
             performSegue(withIdentifier: "showEventsVC", sender: nil)
-        case 3:
+        case 2:
             performSegue(withIdentifier: "showTipsVC", sender: nil)
-        case 4:
+        case 3:
             performSegue(withIdentifier: "showShareVC", sender: nil)
-        case 5:
+        case 4:
             performSegue(withIdentifier: "showSettingsVC", sender: nil)
-        case 6:
+        case 5:
             performSegue(withIdentifier: "showContactUsVC", sender: nil)
-        case 7:
+        case 6:
             performSegue(withIdentifier: "showAboutVC", sender: nil)
         default:
             print("done")

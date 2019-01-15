@@ -8,8 +8,14 @@
 
 import Foundation
 
-class Contact {
+class Contact:Codable {
     var email:String?
     var phone:String?
     var web:String?
+    
+    init(email:String, phone:String, web:String) {
+        self.email = email
+        self.phone = phone
+        self.web = web
+    }
 }

@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C01410321E504380002345D /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C01410221E504380002345D /* CategoryTableViewController.swift */; };
+		9C01410521E5238B0002345D /* CategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C01410421E5238B0002345D /* CategoryDelegate.swift */; };
+		9C25B73921E80A8E00E332F8 /* FIRFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25B73821E80A8E00E332F8 /* FIRFirestoreService.swift */; };
+		9C25B73B21E80CBB00E332F8 /* FIRCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25B73A21E80CBB00E332F8 /* FIRCollectionReference.swift */; };
+		9C25B73E21E9450F00E332F8 /* Encodable Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25B73D21E9450F00E332F8 /* Encodable Extensions.swift */; };
+		9C25B74021E947E400E332F8 /* Snapshot Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25B73F21E947E400E332F8 /* Snapshot Extensions.swift */; };
+		9C25B74221E94DB300E332F8 /* AlertServiceADM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25B74121E94DB300E332F8 /* AlertServiceADM.swift */; };
+		9C2CD85F21D92679005F688E /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2CD85D21D92679005F688E /* AdCell.swift */; };
+		9C2CD86021D92679005F688E /* AdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C2CD85E21D92679005F688E /* AdCell.xib */; };
+		9C2CD86221D96F96005F688E /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2CD86121D96F96005F688E /* ListTableViewController.swift */; };
 		9CC72AD221D3FC9E0048C37B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AD121D3FC9E0048C37B /* AppDelegate.swift */; };
-		9CC72AD421D3FC9E0048C37B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AD321D3FC9E0048C37B /* ListViewController.swift */; };
 		9CC72AD721D3FC9E0048C37B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72AD521D3FC9E0048C37B /* Main.storyboard */; };
 		9CC72AD921D3FCA00048C37B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72AD821D3FCA00048C37B /* Assets.xcassets */; };
 		9CC72ADC21D3FCA00048C37B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72ADA21D3FCA00048C37B /* LaunchScreen.storyboard */; };
 		9CC72AE421D403910048C37B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AE321D403900048C37B /* MenuViewController.swift */; };
-		9CC72AEC21D43AB90048C37B /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AEA21D43AB90048C37B /* AdCell.swift */; };
-		9CC72AEF21D43CAB0048C37B /* AdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72AEE21D43CAB0048C37B /* AdCell.xib */; };
+		9CC72AEC21D43AB90048C37B /* AdNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AEA21D43AB90048C37B /* AdNewCell.swift */; };
+		9CC72AEF21D43CAB0048C37B /* AdNewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72AEE21D43CAB0048C37B /* AdNewCell.xib */; };
 		9CC72AF321D43E930048C37B /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AF021D43E930048C37B /* Ad.swift */; };
 		9CC72AF421D43E930048C37B /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AF121D43E930048C37B /* Address.swift */; };
 		9CC72AF521D43E930048C37B /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AF221D43E930048C37B /* Contact.swift */; };
@@ -26,22 +35,34 @@
 		9CC72B0121D44EBA0048C37B /* TipsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72B0021D44EBA0048C37B /* TipsTableViewController.swift */; };
 		9CC72B0321D44ED50048C37B /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72B0221D44ED50048C37B /* EventsTableViewController.swift */; };
 		9CC72B0521D4507F0048C37B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72B0421D4507F0048C37B /* MapViewController.swift */; };
+		9CCA9DBE21E015C900ADA845 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA9DBD21E015C900ADA845 /* Category.swift */; };
+		9CCA9DC021E016B800ADA845 /* AdsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA9DBF21E016B800ADA845 /* AdsTableViewController.swift */; };
+		9CCA9DC221E01F4000ADA845 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA9DC121E01F4000ADA845 /* GoogleService-Info.plist */; };
 		F5BFEBE7A01A7DAB52741CE8 /* Pods_BrasilNaMao.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AADC22B426E88D5C07BF21 /* Pods_BrasilNaMao.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		85AADC22B426E88D5C07BF21 /* Pods_BrasilNaMao.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrasilNaMao.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C01410221E504380002345D /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		9C01410421E5238B0002345D /* CategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDelegate.swift; sourceTree = "<group>"; };
+		9C25B73821E80A8E00E332F8 /* FIRFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRFirestoreService.swift; sourceTree = "<group>"; };
+		9C25B73A21E80CBB00E332F8 /* FIRCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRCollectionReference.swift; sourceTree = "<group>"; };
+		9C25B73D21E9450F00E332F8 /* Encodable Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable Extensions.swift"; sourceTree = "<group>"; };
+		9C25B73F21E947E400E332F8 /* Snapshot Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot Extensions.swift"; sourceTree = "<group>"; };
+		9C25B74121E94DB300E332F8 /* AlertServiceADM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertServiceADM.swift; sourceTree = "<group>"; };
+		9C2CD85D21D92679005F688E /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
+		9C2CD85E21D92679005F688E /* AdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdCell.xib; sourceTree = "<group>"; };
+		9C2CD86121D96F96005F688E /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		9CC72ACE21D3FC9E0048C37B /* BrasilNaMao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrasilNaMao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC72AD121D3FC9E0048C37B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9CC72AD321D3FC9E0048C37B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9CC72AD621D3FC9E0048C37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9CC72AD821D3FCA00048C37B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CC72ADB21D3FCA00048C37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CC72ADD21D3FCA00048C37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CC72AE321D403900048C37B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		9CC72AE921D406F20048C37B /* BrasilNaMao-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BrasilNaMao-Bridging-Header.h"; sourceTree = "<group>"; };
-		9CC72AEA21D43AB90048C37B /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
-		9CC72AEE21D43CAB0048C37B /* AdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdCell.xib; sourceTree = "<group>"; };
+		9CC72AEA21D43AB90048C37B /* AdNewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdNewCell.swift; sourceTree = "<group>"; };
+		9CC72AEE21D43CAB0048C37B /* AdNewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdNewCell.xib; sourceTree = "<group>"; };
 		9CC72AF021D43E930048C37B /* Ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		9CC72AF121D43E930048C37B /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		9CC72AF221D43E930048C37B /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -53,6 +74,9 @@
 		9CC72B0021D44EBA0048C37B /* TipsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsTableViewController.swift; sourceTree = "<group>"; };
 		9CC72B0221D44ED50048C37B /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		9CC72B0421D4507F0048C37B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9CCA9DBD21E015C900ADA845 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9CCA9DBF21E016B800ADA845 /* AdsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsTableViewController.swift; sourceTree = "<group>"; };
+		9CCA9DC121E01F4000ADA845 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A810A739BC156B5D8DBFF540 /* Pods-BrasilNaMao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrasilNaMao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrasilNaMao/Pods-BrasilNaMao.debug.xcconfig"; sourceTree = "<group>"; };
 		B6A592A3410667D849CA76C1 /* Pods-BrasilNaMao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrasilNaMao.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrasilNaMao/Pods-BrasilNaMao.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +102,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9C25B73721E80A6C00E332F8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9C25B73821E80A8E00E332F8 /* FIRFirestoreService.swift */,
+				9C25B73A21E80CBB00E332F8 /* FIRCollectionReference.swift */,
+				9C25B74121E94DB300E332F8 /* AlertServiceADM.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9C25B73C21E944F700E332F8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9C25B73D21E9450F00E332F8 /* Encodable Extensions.swift */,
+				9C25B73F21E947E400E332F8 /* Snapshot Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9CC72AC521D3FC9E0048C37B = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +142,8 @@
 		9CC72AD021D3FC9E0048C37B /* BrasilNaMao */ = {
 			isa = PBXGroup;
 			children = (
-				9CC72AE921D406F20048C37B /* BrasilNaMao-Bridging-Header.h */,
+				9C25B73C21E944F700E332F8 /* Extensions */,
+				9C25B73721E80A6C00E332F8 /* Services */,
 				9CC72AE721D404860048C37B /* Controller */,
 				9CC72AE621D404800048C37B /* Model */,
 				9CC72AE521D404740048C37B /* View */,
@@ -107,6 +151,8 @@
 				9CC72AD521D3FC9E0048C37B /* Main.storyboard */,
 				9CC72AD821D3FCA00048C37B /* Assets.xcassets */,
 				9CC72ADA21D3FCA00048C37B /* LaunchScreen.storyboard */,
+				9CCA9DC121E01F4000ADA845 /* GoogleService-Info.plist */,
+				9CC72AE921D406F20048C37B /* BrasilNaMao-Bridging-Header.h */,
 				9CC72ADD21D3FCA00048C37B /* Info.plist */,
 			);
 			path = BrasilNaMao;
@@ -115,8 +161,10 @@
 		9CC72AE521D404740048C37B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9CC72AEA21D43AB90048C37B /* AdCell.swift */,
-				9CC72AEE21D43CAB0048C37B /* AdCell.xib */,
+				9CC72AEA21D43AB90048C37B /* AdNewCell.swift */,
+				9CC72AEE21D43CAB0048C37B /* AdNewCell.xib */,
+				9C2CD85D21D92679005F688E /* AdCell.swift */,
+				9C2CD85E21D92679005F688E /* AdCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -127,6 +175,7 @@
 				9CC72AF021D43E930048C37B /* Ad.swift */,
 				9CC72AF121D43E930048C37B /* Address.swift */,
 				9CC72AF221D43E930048C37B /* Contact.swift */,
+				9CCA9DBD21E015C900ADA845 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,13 +186,15 @@
 				9CC72AE821D404900048C37B /* Menu */,
 				9CC72AF821D44E580048C37B /* SettingsViewController.swift */,
 				9CC72AF621D440CD0048C37B /* MyAdTableViewController.swift */,
-				9CC72AD321D3FC9E0048C37B /* ListViewController.swift */,
+				9C2CD86121D96F96005F688E /* ListTableViewController.swift */,
 				9CC72AFA21D44E6E0048C37B /* ContactUsViewController.swift */,
 				9CC72AFC21D44E780048C37B /* AboutViewController.swift */,
 				9CC72AFE21D44E8A0048C37B /* ShareViewController.swift */,
 				9CC72B0021D44EBA0048C37B /* TipsTableViewController.swift */,
 				9CC72B0221D44ED50048C37B /* EventsTableViewController.swift */,
 				9CC72B0421D4507F0048C37B /* MapViewController.swift */,
+				9C01410221E504380002345D /* CategoryTableViewController.swift */,
+				9C01410421E5238B0002345D /* CategoryDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -152,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				9CC72AE321D403900048C37B /* MenuViewController.swift */,
+				9CCA9DBF21E016B800ADA845 /* AdsTableViewController.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -224,10 +276,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C2CD86021D92679005F688E /* AdCell.xib in Resources */,
 				9CC72ADC21D3FCA00048C37B /* LaunchScreen.storyboard in Resources */,
-				9CC72AEF21D43CAB0048C37B /* AdCell.xib in Resources */,
+				9CC72AEF21D43CAB0048C37B /* AdNewCell.xib in Resources */,
 				9CC72AD921D3FCA00048C37B /* Assets.xcassets in Resources */,
 				9CC72AD721D3FC9E0048C37B /* Main.storyboard in Resources */,
+				9CCA9DC221E01F4000ADA845 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,13 +297,33 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BrasilNaMao/Pods-BrasilNaMao-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -286,20 +360,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CC72AF421D43E930048C37B /* Address.swift in Sources */,
-				9CC72AD421D3FC9E0048C37B /* ListViewController.swift in Sources */,
+				9C25B73921E80A8E00E332F8 /* FIRFirestoreService.swift in Sources */,
+				9C25B73E21E9450F00E332F8 /* Encodable Extensions.swift in Sources */,
 				9CC72AFD21D44E780048C37B /* AboutViewController.swift in Sources */,
 				9CC72AF721D440CD0048C37B /* MyAdTableViewController.swift in Sources */,
-				9CC72AEC21D43AB90048C37B /* AdCell.swift in Sources */,
+				9C2CD86221D96F96005F688E /* ListTableViewController.swift in Sources */,
+				9C25B73B21E80CBB00E332F8 /* FIRCollectionReference.swift in Sources */,
+				9CC72AEC21D43AB90048C37B /* AdNewCell.swift in Sources */,
+				9C01410321E504380002345D /* CategoryTableViewController.swift in Sources */,
 				9CC72AE421D403910048C37B /* MenuViewController.swift in Sources */,
 				9CC72B0121D44EBA0048C37B /* TipsTableViewController.swift in Sources */,
 				9CC72AFF21D44E8A0048C37B /* ShareViewController.swift in Sources */,
+				9C25B74221E94DB300E332F8 /* AlertServiceADM.swift in Sources */,
 				9CC72B0321D44ED50048C37B /* EventsTableViewController.swift in Sources */,
 				9CC72AF321D43E930048C37B /* Ad.swift in Sources */,
+				9CCA9DC021E016B800ADA845 /* AdsTableViewController.swift in Sources */,
 				9CC72AD221D3FC9E0048C37B /* AppDelegate.swift in Sources */,
+				9CCA9DBE21E015C900ADA845 /* Category.swift in Sources */,
 				9CC72AFB21D44E6E0048C37B /* ContactUsViewController.swift in Sources */,
+				9C2CD85F21D92679005F688E /* AdCell.swift in Sources */,
 				9CC72AF521D43E930048C37B /* Contact.swift in Sources */,
+				9C25B74021E947E400E332F8 /* Snapshot Extensions.swift in Sources */,
 				9CC72B0521D4507F0048C37B /* MapViewController.swift in Sources */,
 				9CC72AF921D44E580048C37B /* SettingsViewController.swift in Sources */,
+				9C01410521E5238B0002345D /* CategoryDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W37KBBDQBC;
 				INFOPLIST_FILE = BrasilNaMao/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,6 +553,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W37KBBDQBC;
 				INFOPLIST_FILE = BrasilNaMao/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

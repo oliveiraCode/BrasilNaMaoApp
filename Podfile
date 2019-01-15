@@ -7,5 +7,7 @@ target 'BrasilNaMao' do
 
   # Pods for BrasilNaMao
   pod 'SWRevealViewController'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
 end
