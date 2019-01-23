@@ -198,7 +198,11 @@
                                 <action selector="cancelPressed:" destination="IRW-eS-8Ht" id="qJ5-eI-1Q7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="OAK-bF-qqb"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="OAK-bF-qqb">
+                            <connections>
+                                <action selector="savePressed:" destination="IRW-eS-8Ht" id="eNI-J9-YyP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="c4y-oW-csZ" kind="presentation" identifier="showCategoryVC" id="3ka-98-Bsb"/>

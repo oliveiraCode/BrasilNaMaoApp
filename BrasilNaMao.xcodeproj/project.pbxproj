@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9C01410321E504380002345D /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C01410221E504380002345D /* CategoryTableViewController.swift */; };
 		9C01410521E5238B0002345D /* CategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C01410421E5238B0002345D /* CategoryDelegate.swift */; };
+		9C160BEB21F8DEBE009232DD /* CLLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C160BEA21F8DEBE009232DD /* CLLocationService.swift */; };
 		9C25B73921E80A8E00E332F8 /* FIRFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25B73821E80A8E00E332F8 /* FIRFirestoreService.swift */; };
 		9C25B73B21E80CBB00E332F8 /* FIRCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25B73A21E80CBB00E332F8 /* FIRCollectionReference.swift */; };
 		9C25B73E21E9450F00E332F8 /* Encodable Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25B73D21E9450F00E332F8 /* Encodable Extensions.swift */; };
@@ -45,6 +46,8 @@
 		85AADC22B426E88D5C07BF21 /* Pods_BrasilNaMao.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrasilNaMao.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C01410221E504380002345D /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		9C01410421E5238B0002345D /* CategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDelegate.swift; sourceTree = "<group>"; };
+		9C160BEA21F8DEBE009232DD /* CLLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationService.swift; sourceTree = "<group>"; };
+		9C160BEC21F8F724009232DD /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9C25B73821E80A8E00E332F8 /* FIRFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRFirestoreService.swift; sourceTree = "<group>"; };
 		9C25B73A21E80CBB00E332F8 /* FIRCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRCollectionReference.swift; sourceTree = "<group>"; };
 		9C25B73D21E9450F00E332F8 /* Encodable Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable Extensions.swift"; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 		9C25B73721E80A6C00E332F8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9C160BEA21F8DEBE009232DD /* CLLocationService.swift */,
 				9C25B73821E80A8E00E332F8 /* FIRFirestoreService.swift */,
 				9C25B73A21E80CBB00E332F8 /* FIRCollectionReference.swift */,
 				9C25B74121E94DB300E332F8 /* AlertServiceADM.swift */,
@@ -124,6 +128,7 @@
 		9CC72AC521D3FC9E0048C37B = {
 			isa = PBXGroup;
 			children = (
+				9C160BEC21F8F724009232DD /* MyPlayground.playground */,
 				9CC72AD021D3FC9E0048C37B /* BrasilNaMao */,
 				9CC72ACF21D3FC9E0048C37B /* Products */,
 				175B9FAE24EDED81C34B6235 /* Pods */,
@@ -228,6 +233,7 @@
 				9CC72ACB21D3FC9E0048C37B /* Frameworks */,
 				9CC72ACC21D3FC9E0048C37B /* Resources */,
 				51D8E5A189C7A2DAD649AC2D /* [CP] Embed Pods Frameworks */,
+				A5C27D3E9A80C7E6E62C9437 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,11 +307,8 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -317,11 +320,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -352,6 +352,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A5C27D3E9A80C7E6E62C9437 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BrasilNaMao/Pods-BrasilNaMao-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BrasilNaMao/Pods-BrasilNaMao-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -374,6 +396,7 @@
 				9C25B74221E94DB300E332F8 /* AlertServiceADM.swift in Sources */,
 				9CC72B0321D44ED50048C37B /* EventsTableViewController.swift in Sources */,
 				9CC72AF321D43E930048C37B /* Ad.swift in Sources */,
+				9C160BEB21F8DEBE009232DD /* CLLocationService.swift in Sources */,
 				9CCA9DC021E016B800ADA845 /* AdsTableViewController.swift in Sources */,
 				9CC72AD221D3FC9E0048C37B /* AppDelegate.swift in Sources */,
 				9CCA9DBE21E015C900ADA845 /* Category.swift in Sources */,

@@ -16,18 +16,17 @@ class Ad:Codable {
     var address:Address
     var contact:Contact
     var creationDate:String?
-    var distance:Double?
     var category:String?
+    var user_id:String?
     
-    init(id:String, imageStorage:String, description:String, name:String,address:Address, contact:Contact, creationDate:String, distance:Double, category:String) {
-        self.id = id
+    init(imageStorage:String, description:String, name:String,address:Address, contact:Contact, creationDate:String, category:String, user_id:String) {
         self.imageStorage = imageStorage
         self.description = description
         self.name = name
         self.address = address
         self.contact = contact
         self.creationDate = creationDate
-        self.distance = distance
         self.category = category
+        self.user_id = user_id
     }
 }

@@ -8,11 +8,10 @@
 
 import UIKit
 
-
-
 class MyAdTableViewController: UITableViewController  {
     
     var categoryValue:String?
+    var cell:AdNewCell = AdNewCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +19,7 @@ class MyAdTableViewController: UITableViewController  {
         
         let nibName = UINib(nibName: "AdNewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "AdNewCell")
-
+        
         
     }
     
@@ -38,7 +37,7 @@ class MyAdTableViewController: UITableViewController  {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AdNewCell", for: indexPath) as! AdNewCell
+        cell = tableView.dequeueReusableCell(withIdentifier: "AdNewCell", for: indexPath) as! AdNewCell
         
         if categoryValue == nil {
             cell.btnCategory.setTitle("Select", for: .normal)
@@ -57,7 +56,7 @@ class MyAdTableViewController: UITableViewController  {
     }
     
     
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let navController = segue.destination as! UINavigationController
@@ -69,6 +68,44 @@ class MyAdTableViewController: UITableViewController  {
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    
+    @IBAction func savePressed(_ sender: Any) {
+        
+        guard let description = cell.tvDescription.text else {return}
+        guard let name = cell.tfName.text else {return}
+        
+        guard let street = cell.tfStreet.text else {return}
+        guard let city = cell.tfCity.text else {return}
+        guard let province = cell.tfProvince.text else {return}
+        guard let postalCode = cell.tfPostalCode.text else {return}
+        
+        guard let email = cell.tfEmail.text else {return}
+        guard let phone = cell.tfPhone.text else {return}
+        guard let web = cell.tfWeb.text else {return}
+        guard let category = cell.btnCategory.title(for: .normal) else {return}
+        
+        
+        
+       CLLocationService.shared.getCoordinateFromGeoCoder(address: "\(street), \(city), \(province) \(postalCode)") { (coordinate, error) in
+            
+            if error == nil {
+                let contact:Contact = Contact(email: email, phone: phone, web: web)
+                
+                let address:Address = Address(street: street, city: city, province: province, postalCode: postalCode, latitude: coordinate!.coordinate.latitude, longitude: coordinate!.coordinate.longitude)
+                
+                let addressObj:Ad = Ad(imageStorage: "imageStorage", description: description, name: name, address: address, contact: contact, creationDate: "01012019", category: category, user_id: "user_id")
+                
+                FIRFirestoreService.shared.createAd(for: addressObj, in: .ad)
+                
+            }
+        }
+    }
+    
+    
+
+    
     
     
 }

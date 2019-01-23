@@ -25,6 +25,30 @@ class FIRFirestoreService {
         return Firestore.firestore().collection(collectionReference.rawValue)
     }
     
+    func get (){
+       
+        
+        let db = Firestore.firestore()
+        
+        let citiesRef = db.collection("ad")
+        
+        let query = citiesRef.whereField("category", isEqualTo: "Tradutores")
+        
+        
+        
+        db.collection("ad").whereField("category", isEqualTo: "Tradutores")
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching documents: \(error!)")
+                    return
+                }
+                let cities = documents.map { $0["name"]! }
+                print("Current cities in CA: \(cities)")
+        }
+        
+        
+    }
+    
     func createCategory<T: Encodable>(for encodableObject: T, in collectionReference: FIRCollectionReference){
         do {
             let json = try encodableObject.toJson(excluding: ["id"])
@@ -51,8 +75,15 @@ class FIRFirestoreService {
             }catch {
                 print(error)
             }
-            
         }
-        
+    }
+    
+    func createAd<T: Encodable>(for encodableObject: T, in collectionReference: FIRCollectionReference){
+        do {
+            let json = try encodableObject.toJson(excluding: ["id"])
+            reference(to: collectionReference).addDocument(data: json)
+        }catch {
+            print(error)
+        }
     }
 }
