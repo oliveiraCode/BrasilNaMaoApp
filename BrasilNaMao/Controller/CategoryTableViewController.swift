@@ -18,10 +18,11 @@ class CategoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FIRFirestoreService.shared.readCategory(from: .category, returnig: Category.self) { (categories) in
-            self.categories = categories
+        FIRFirestoreService.shared.readCategory { (category, error) in
+            self.categories = category as! [Category]
             self.tableView.reloadData()
         }
+
     }
     
 
@@ -59,7 +60,6 @@ class CategoryTableViewController: UITableViewController {
     
     @IBAction func btnSavePressed(_ sender: Any) {
         self.delegate?.categoryValueSelected(categoryValue: self.categories[indexPathSelected].name)
-        
         self.dismiss(animated: true, completion: nil)
     }
     

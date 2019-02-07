@@ -10,20 +10,24 @@ import Foundation
 
 class Address:Codable {
     var street:String?
+    var complement:String?
     var city:String?
     var province:String?
     var postalCode:String?
     var latitude:Double?
     var longitude:Double?
     
-    init(street:String, city:String, province:String, postalCode:String, latitude:Double, longitude:Double) {
+    init(street:String, complement:String, city:String, province:String, postalCode:String, latitude:Double, longitude:Double) {
         self.street = street
+        self.complement = complement
         self.city = city
         self.province = province
         self.postalCode = postalCode
         self.latitude = latitude
         self.longitude = longitude
     }
+    
+    init() {}
     
     func addressGeoCode () -> String{
         return "\(self.street!), \(self.city!), \(self.province!) \(self.postalCode!)"

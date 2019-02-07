@@ -1,5 +1,5 @@
 //
-//  AdCell.swift
+//  BusinessCell.swift
 //  BrasilNaMao
 //
 //  Created by Leandro Oliveira on 2018-12-30.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdCell: UITableViewCell {
+class BusinessCell: UITableViewCell {
 
     @IBOutlet weak var imgLogo: UIImageView!
     @IBOutlet weak var lbName: UILabel!

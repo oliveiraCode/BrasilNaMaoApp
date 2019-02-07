@@ -9,7 +9,7 @@
 import UIKit
 import SWRevealViewController
 
-class TipsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var btnMenu: UIBarButtonItem!
     
@@ -97,7 +97,7 @@ class TipsTableViewController: UITableViewController {
             
             self.btnMenu.target = revealViewController()
             self.btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
-            revealViewController().rearViewRevealWidth = 275
+            revealViewController().rearViewRevealWidth = 200
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }

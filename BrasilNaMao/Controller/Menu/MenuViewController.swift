@@ -10,23 +10,19 @@ import UIKit
 
 class  MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    
+    //IBOutlets
     @IBOutlet weak var btnSignInOut: UIButton!
     @IBOutlet weak var lbName: UILabel!
-    @IBOutlet weak var lbEmail: UILabel!
     @IBOutlet weak var imgProfile: UIImageView!
-    @IBOutlet weak var img_login_logout: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func unWindToMenu(segue:UIStoryboardSegue) {}
     
+    let imgMenu = ["home_color",
+                   "settings_color"]
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let nameMenu:[String] = [NSLocalizedString("Home", comment: "Home"),
-                             NSLocalizedString("Events", comment: "Events"),
-                             NSLocalizedString("Tips", comment: "Tips"),
-                             NSLocalizedString("Share", comment: "Share"),
-                             NSLocalizedString("Settings", comment: "Settings"),
-                             NSLocalizedString("Contact us", comment: "Contact us"),
-                             NSLocalizedString("About", comment: "About")]
+    let nameMenu:[String] = [NSLocalizedString(LocalizationKeys.menuHome, comment: ""),
+                             NSLocalizedString(LocalizationKeys.menuSettings, comment: "")]
     
     
     
@@ -36,39 +32,42 @@ class  MenuViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeTitleNavigatorBar()
-        setupImgProfile()
-    
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        updateUI()
     }
     
     // MARK: - Setup ViewController
-    func setupImgProfile(){
+    private func updateUI(){
+        
+        var accountName = LocalizationKeys.accountName
+        var accountImage = UIImage(named: LocalizationKeys.imageUserDefault)
+        var btnSignInOut = LocalizationKeys.buttonLogin
+        
+        //set account name if it exists
+        if appDelegate.userObj.id != nil {
+            accountName = appDelegate.userObj.firstName
+            accountImage = appDelegate.userObj.image
+            btnSignInOut = LocalizationKeys.buttonLogout
+        }
+        
+        //set constants' name
+        self.btnSignInOut.setTitle(btnSignInOut, for: .normal)
+        self.lbName.text = "\(Service.shared.getPeriodOfDay()) \(accountName)!"
+        self.imgProfile.image = accountImage
+        
+        //image profile round
         imgProfile.layer.cornerRadius = imgProfile.bounds.height / 2
         imgProfile.layer.borderWidth = 1
-        imgProfile.layer.borderColor = UIColor.white.cgColor
+        imgProfile.layer.borderColor = UIColor.black.cgColor
         imgProfile.clipsToBounds = true
     }
     
-    func changeTitleNavigatorBar(){
-        let logo = UIImage(named: "logoTitle")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
-    }
     
     // MARK: - TableView Methods
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return self.nameMenu.count
@@ -76,42 +75,23 @@ class  MenuViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellMenu", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellMenu", for: indexPath) as! MenuTableViewCell
         
-        let imgMenu = cell.contentView.viewWithTag(100) as! UIImageView
-        let nameMenu = cell.contentView.viewWithTag(101) as! UILabel
-        
-       // imgMenu.image = UIImage(named:self.imgMenu[indexPath.row])
-        nameMenu.text = self.nameMenu[indexPath.row]
+        cell.nameMenu.text = self.nameMenu[indexPath.row]
+        cell.imageMenu.image = UIImage(named:self.imgMenu[indexPath.row])
         
         return cell
     }
     
     
-    // Override to support conditional editing of the table view.
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-        
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        
         switch indexPath.row {
         case 0:
             performSegue(withIdentifier: "showHomeVC", sender: nil)
         case 1:
-            performSegue(withIdentifier: "showEventsVC", sender: nil)
-        case 2:
-            performSegue(withIdentifier: "showTipsVC", sender: nil)
-        case 3:
-            performSegue(withIdentifier: "showShareVC", sender: nil)
-        case 4:
             performSegue(withIdentifier: "showSettingsVC", sender: nil)
-        case 5:
-            performSegue(withIdentifier: "showContactUsVC", sender: nil)
-        case 6:
-            performSegue(withIdentifier: "showAboutVC", sender: nil)
         default:
             print("done")
         }
@@ -119,7 +99,23 @@ class  MenuViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
-
+    
+    // MARK: - Account Methods
+    @IBAction func btnSignInOut(_ sender: Any) {
+        
+        //set account name if it exists
+        if appDelegate.userObj.id != nil {
+            //set constants' name
+            self.btnSignInOut.setTitle(LocalizationKeys.buttonLogin, for: .normal)
+            self.lbName.text = "\(Service.shared.getPeriodOfDay()) \(LocalizationKeys.accountName)!"
+            self.imgProfile.image = UIImage(named: LocalizationKeys.imageUserDefault)
+            self.appDelegate.userObj.resetValuesOfUserAccount()
+            CoreDataService.shared.resetAllRecordsOnCoreData()
+        } else {
+            performSegue(withIdentifier: "showLoginVC", sender: nil)
+        }
+    }
+    
     
     
     

@@ -1,5 +1,5 @@
 //
-//  MyAdTableViewController.swift
+//  MyAdViewController.swift
 //  BrasilNaMao
 //
 //  Created by Leandro Oliveira on 2018-12-26.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyAdTableViewController: UITableViewController  {
+class MyAdViewController: UITableViewController  {
     
     var categoryValue:String?
     var cell:AdNewCell = AdNewCell()
@@ -110,7 +110,7 @@ class MyAdTableViewController: UITableViewController  {
     
 }
 
-extension MyAdTableViewController: CategoryDelegate {
+extension MyAdViewController: CategoryDelegate {
     func categoryValueSelected(categoryValue: String) {
         self.categoryValue = categoryValue
         self.tableView.reloadData()

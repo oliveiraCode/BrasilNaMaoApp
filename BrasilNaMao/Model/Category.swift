@@ -8,12 +8,24 @@
 
 import Foundation
 
-struct Category: Codable {
+
+struct Category{
     var id: String? = nil
     var name:String
     
-    init(name:String) {
-        self.name = name
+    var dictionary: [String: Any] {
+        return [
+            "id": id!,
+            "name": name
+        ]
     }
+}
 
+extension Category{
+    init?(dictionary: [String : Any], id: String) {
+        guard   let name = dictionary["name"] as? String
+            else { return nil }
+        
+        self.init(id: id,name: name)
+    }
 }

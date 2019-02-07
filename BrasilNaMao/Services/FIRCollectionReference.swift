@@ -8,7 +8,12 @@
 
 import Foundation
 
-enum FIRCollectionReference: String {
-    case category
-    case ad
+enum FIRCollectionReference {
+    static let category = "category"
+    static let business = "business"
+    static let address = "address"
+    static let contact = "contact"
+    static let users = "users"
+    static let imageBusiness = "ImageBusiness"
+    static let imageUsers = "ImageUsers"
 }
