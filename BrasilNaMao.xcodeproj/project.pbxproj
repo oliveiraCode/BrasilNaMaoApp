@@ -13,7 +13,7 @@
 		9C04E8F72204BACE00C46412 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C04E8F62204BACE00C46412 /* CoreDataService.swift */; };
 		9C160BEB21F8DEBE009232DD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C160BEA21F8DEBE009232DD /* Service.swift */; };
 		9C160BEE21F909B6009232DD /* ViewController Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C160BED21F909B6009232DD /* ViewController Extensions.swift */; };
-		9C1C85D221FA3FB100103655 /* MyBusinessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1C85D121FA3FB100103655 /* MyBusinessCollectionViewCell.swift */; };
+		9C1C85D221FA3FB100103655 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1C85D121FA3FB100103655 /* PhotoCollectionViewCell.swift */; };
 		9C1C85D421FB8B0200103655 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1C85D321FB8B0200103655 /* Constants.swift */; };
 		9C25B73921E80A8E00E332F8 /* FIRFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25B73821E80A8E00E332F8 /* FIRFirestoreService.swift */; };
 		9C25B73B21E80CBB00E332F8 /* FIRCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25B73A21E80CBB00E332F8 /* FIRCollectionReference.swift */; };
@@ -21,7 +21,6 @@
 		9C2CD86021D92679005F688E /* BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C2CD85E21D92679005F688E /* BusinessCell.xib */; };
 		9C2CD86221D96F96005F688E /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2CD86121D96F96005F688E /* ListTableViewController.swift */; };
 		9C329D8C220BA69700A74EFA /* MyNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C329D8B220BA69700A74EFA /* MyNavController.swift */; };
-		9C329D8E220BB17900A74EFA /* MyTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C329D8D220BB17900A74EFA /* MyTabController.swift */; };
 		9C71502C2204899F00DA86AA /* BrasilNaMao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C71502A2204899F00DA86AA /* BrasilNaMao.xcdatamodeld */; };
 		9C8CA97921FF6A390081B96B /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CA97821FF6A390081B96B /* MenuTableViewCell.swift */; };
 		9C8CA97B21FFAF970081B96B /* LocationManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CA97A21FFAF970081B96B /* LocationManagerService.swift */; };
@@ -32,11 +31,10 @@
 		9C933D2C22061F7800F54782 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C933D2B22061F7800F54782 /* ProfileTableViewCell.swift */; };
 		9C933D2E2206639A00F54782 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C933D2D2206639A00F54782 /* EditProfileViewController.swift */; };
 		9C933D32220A2DC500F54782 /* DailyHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C933D31220A2DC500F54782 /* DailyHours.swift */; };
-		9C933D57220B303100F54782 /* GradientNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C933D56220B303100F54782 /* GradientNavigationBar.swift */; };
-		9C933D59220B37A300F54782 /* tetsteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C933D58220B37A300F54782 /* tetsteViewController.swift */; };
 		9C933D5B220B3BB200F54782 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C933D5A220B3BB200F54782 /* GradientButton.swift */; };
 		9C933D5D220B3DB000F54782 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C933D5C220B3DB000F54782 /* GradientView.swift */; };
 		9CB7204922060BF7001DE201 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7204822060BF7001DE201 /* SettingsTableViewCell.swift */; };
+		9CB91C9C220DFA7400DD4933 /* HoursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB91C9B220DFA7400DD4933 /* HoursCollectionViewCell.swift */; };
 		9CC72AD221D3FC9E0048C37B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC72AD121D3FC9E0048C37B /* AppDelegate.swift */; };
 		9CC72AD721D3FC9E0048C37B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72AD521D3FC9E0048C37B /* Main.storyboard */; };
 		9CC72AD921D3FCA00048C37B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC72AD821D3FCA00048C37B /* Assets.xcassets */; };
@@ -65,7 +63,7 @@
 		9C160BEA21F8DEBE009232DD /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		9C160BEC21F8F724009232DD /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9C160BED21F909B6009232DD /* ViewController Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController Extensions.swift"; sourceTree = "<group>"; };
-		9C1C85D121FA3FB100103655 /* MyBusinessCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBusinessCollectionViewCell.swift; sourceTree = "<group>"; };
+		9C1C85D121FA3FB100103655 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C1C85D321FB8B0200103655 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9C25B73821E80A8E00E332F8 /* FIRFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRFirestoreService.swift; sourceTree = "<group>"; };
 		9C25B73A21E80CBB00E332F8 /* FIRCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRCollectionReference.swift; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 		9C2CD85E21D92679005F688E /* BusinessCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessCell.xib; sourceTree = "<group>"; };
 		9C2CD86121D96F96005F688E /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		9C329D8B220BA69700A74EFA /* MyNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavController.swift; sourceTree = "<group>"; };
-		9C329D8D220BB17900A74EFA /* MyTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabController.swift; sourceTree = "<group>"; };
 		9C71502B2204899F00DA86AA /* BrasilNaMao.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BrasilNaMao.xcdatamodel; sourceTree = "<group>"; };
 		9C8CA97821FF6A390081B96B /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		9C8CA97A21FFAF970081B96B /* LocationManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerService.swift; sourceTree = "<group>"; };
@@ -84,11 +81,10 @@
 		9C933D2B22061F7800F54782 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		9C933D2D2206639A00F54782 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		9C933D31220A2DC500F54782 /* DailyHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHours.swift; sourceTree = "<group>"; };
-		9C933D56220B303100F54782 /* GradientNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNavigationBar.swift; sourceTree = "<group>"; };
-		9C933D58220B37A300F54782 /* tetsteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tetsteViewController.swift; sourceTree = "<group>"; };
 		9C933D5A220B3BB200F54782 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		9C933D5C220B3DB000F54782 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		9CB7204822060BF7001DE201 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		9CB91C9B220DFA7400DD4933 /* HoursCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursCollectionViewCell.swift; sourceTree = "<group>"; };
 		9CC72ACE21D3FC9E0048C37B /* BrasilNaMao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrasilNaMao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC72AD121D3FC9E0048C37B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CC72AD621D3FC9E0048C37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,13 +144,8 @@
 		9C25B73C21E944F700E332F8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9CB91C9A220DF28600DD4933 /* UI */,
 				9C160BED21F909B6009232DD /* ViewController Extensions.swift */,
-				9C933D56220B303100F54782 /* GradientNavigationBar.swift */,
-				9C933D58220B37A300F54782 /* tetsteViewController.swift */,
-				9C933D5A220B3BB200F54782 /* GradientButton.swift */,
-				9C933D5C220B3DB000F54782 /* GradientView.swift */,
-				9C329D8B220BA69700A74EFA /* MyNavController.swift */,
-				9C329D8D220BB17900A74EFA /* MyTabController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -185,6 +176,16 @@
 				9C933D2D2206639A00F54782 /* EditProfileViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		9CB91C9A220DF28600DD4933 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9C933D5A220B3BB200F54782 /* GradientButton.swift */,
+				9C933D5C220B3DB000F54782 /* GradientView.swift */,
+				9C329D8B220BA69700A74EFA /* MyNavController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		9CC72AC521D3FC9E0048C37B = {
@@ -233,11 +234,12 @@
 			children = (
 				9C2CD85D21D92679005F688E /* BusinessCell.swift */,
 				9C2CD85E21D92679005F688E /* BusinessCell.xib */,
-				9C1C85D121FA3FB100103655 /* MyBusinessCollectionViewCell.swift */,
+				9C1C85D121FA3FB100103655 /* PhotoCollectionViewCell.swift */,
 				9C8CA97821FF6A390081B96B /* MenuTableViewCell.swift */,
 				9C8DE2DF2202055C00BB79C1 /* DetailsBusinessCollectionViewCell.swift */,
 				9CB7204822060BF7001DE201 /* SettingsTableViewCell.swift */,
 				9C933D2B22061F7800F54782 /* ProfileTableViewCell.swift */,
+				9CB91C9B220DFA7400DD4933 /* HoursCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -446,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CB91C9C220DFA7400DD4933 /* HoursCollectionViewCell.swift in Sources */,
 				9CC72AF421D43E930048C37B /* Address.swift in Sources */,
 				9C25B73921E80A8E00E332F8 /* FIRFirestoreService.swift in Sources */,
 				9CC72AF721D440CD0048C37B /* MyBusinessViewController.swift in Sources */,
@@ -459,7 +462,6 @@
 				9C933D2E2206639A00F54782 /* EditProfileViewController.swift in Sources */,
 				9C01410321E504380002345D /* CategoryTableViewController.swift in Sources */,
 				9CC72AE421D403910048C37B /* MenuViewController.swift in Sources */,
-				9C329D8E220BB17900A74EFA /* MyTabController.swift in Sources */,
 				9CC72B0121D44EBA0048C37B /* SettingsTableViewController.swift in Sources */,
 				9CC72AF321D43E930048C37B /* Business.swift in Sources */,
 				9C329D8C220BA69700A74EFA /* MyNavController.swift in Sources */,
@@ -476,14 +478,12 @@
 				9C933D32220A2DC500F54782 /* DailyHours.swift in Sources */,
 				9C71502C2204899F00DA86AA /* BrasilNaMao.xcdatamodeld in Sources */,
 				9CEF8905220254F70015258F /* CreateAccountViewController.swift in Sources */,
-				9C1C85D221FA3FB100103655 /* MyBusinessCollectionViewCell.swift in Sources */,
+				9C1C85D221FA3FB100103655 /* PhotoCollectionViewCell.swift in Sources */,
 				9C04E8F72204BACE00C46412 /* CoreDataService.swift in Sources */,
-				9C933D59220B37A300F54782 /* tetsteViewController.swift in Sources */,
 				9CEF890122023D9A0015258F /* BusinessAnnotation.swift in Sources */,
 				9C8CA97921FF6A390081B96B /* MenuTableViewCell.swift in Sources */,
 				9C04E8F52204B14E00C46412 /* User.swift in Sources */,
 				9C01410521E5238B0002345D /* CategoryDelegate.swift in Sources */,
-				9C933D57220B303100F54782 /* GradientNavigationBar.swift in Sources */,
 				9C1C85D421FB8B0200103655 /* Constants.swift in Sources */,
 				9C8DE2DE2202015200BB79C1 /* DetailsBusinessViewController.swift in Sources */,
 				9C933D5B220B3BB200F54782 /* GradientButton.swift in Sources */,

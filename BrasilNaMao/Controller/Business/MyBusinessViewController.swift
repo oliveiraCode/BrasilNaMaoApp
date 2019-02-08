@@ -24,8 +24,11 @@ class MyBusinessViewController: UIViewController,UICollectionViewDelegate, UICol
     @IBOutlet weak var tfWhatsapp: UITextField!
     @IBOutlet weak var tfWeb: UITextField!
     @IBOutlet weak var btnCategory: UIButton!
-    @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageControlPhoto: UIPageControl!
+    @IBOutlet weak var pageControlHours: UIPageControl!
+    @IBOutlet weak var collectionViewPhoto: UICollectionView!
+    @IBOutlet weak var collectionViewHours: UICollectionView!
+
     
     //
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -34,6 +37,10 @@ class MyBusinessViewController: UIViewController,UICollectionViewDelegate, UICol
     var imageArrayForStorage:[UIImage] = [UIImage(named: "placeholder_photo_new_ad")!,
                                           UIImage(named: "placeholder_photo_new_ad")!,
                                           UIImage(named: "placeholder_photo_new_ad")!]
+    
+    var weekArray:[String] = ["Segunda", "Terça" , "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +57,9 @@ class MyBusinessViewController: UIViewController,UICollectionViewDelegate, UICol
             btnCategory.setTitle(self.categoryValue, for: .normal)
         }
         
-        pageControl.numberOfPages = self.imageArrayForStorage.count
+        pageControlPhoto.numberOfPages = self.imageArrayForStorage.count
+        pageControlHours.numberOfPages = self.weekArray.count
+        
         setLayoutUITextView()
         
     }
@@ -145,28 +154,53 @@ class MyBusinessViewController: UIViewController,UICollectionViewDelegate, UICol
     
     //MARK -> CollectionView's methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.imageArrayForStorage.count
+        if collectionView == self.collectionViewPhoto {
+            return self.imageArrayForStorage.count //return value for CollectionViewPhoto
+        } else {
+            return self.weekArray.count //return value for CollectionViewHours
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionMyBusinessCell", for: indexPath) as! MyBusinessCollectionViewCell
         
-        cell.imageCellBusiness.image = imageArrayForStorage[indexPath.item]
+        if collectionView == self.collectionViewPhoto {
+            
+            let cellPhoto = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionPhotoCell", for: indexPath) as! PhotoCollectionViewCell
+            
+            cellPhoto.imageCellBusiness.image = imageArrayForStorage[indexPath.item]
+            
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.pickImage(_:)))
+            cellPhoto.imageCellBusiness.isUserInteractionEnabled = true
+            cellPhoto.imageCellBusiness.tag = indexPath.row
+            cellPhoto.imageCellBusiness.addGestureRecognizer(tapGestureRecognizer)
+            
+            
+            return cellPhoto
+            
+        } else {
+            
+            let cellHours = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionHoursCell", for: indexPath) as! HoursCollectionViewCell
+            
+            cellHours.lbWeekDay.text = self.weekArray[indexPath.item]
+            
+            return cellHours
+        }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.pickImage(_:)))
-        cell.imageCellBusiness.isUserInteractionEnabled = true
-        cell.imageCellBusiness.tag = indexPath.row
-        cell.imageCellBusiness.addGestureRecognizer(tapGestureRecognizer)
         
         
-        return cell
     }
     
     
     
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        pageControl.currentPage = indexPath.item
+        
+        if collectionView == self.collectionViewPhoto {
+            pageControlPhoto.currentPage = indexPath.item
+        } else {
+            pageControlHours.currentPage = indexPath.item
+        }
+        
         
     }
     
@@ -252,7 +286,7 @@ extension MyBusinessViewController: UIImagePickerControllerDelegate, UINavigatio
             imageArrayForStorage.insert(pickedImage, at: indexPathItemForImage!)
             
         }
-        picker.dismiss(animated: true, completion: {self.collectionView.reloadData()})
+        picker.dismiss(animated: true, completion: {self.collectionViewPhoto.reloadData()})
     }
     
 }
