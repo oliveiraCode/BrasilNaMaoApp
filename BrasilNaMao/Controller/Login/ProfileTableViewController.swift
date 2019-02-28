@@ -1,6 +1,6 @@
 //
 //  ProfileTableViewController.swift
-//  BrasilNaMao
+//  KDBrasil
 //
 //  Created by Leandro Oliveira on 2019-02-02.
 //  Copyright © 2019 OliveiraCode Technologies. All rights reserved.

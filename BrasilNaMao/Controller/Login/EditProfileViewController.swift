@@ -1,6 +1,6 @@
 //
 //  EditProfileViewController.swift
-//  BrasilNaMao
+//  KDBrasil
 //
 //  Created by Leandro Oliveira on 2019-02-02.
 //  Copyright © 2019 OliveiraCode Technologies. All rights reserved.
@@ -98,8 +98,9 @@ class EditProfileViewController: UIViewController {
                 
                 //atualizar o banco
                 FIRFirestoreService.shared.saveProfileToFireStore()
+                CoreDataService.shared.saveCurrentUserToCoreData()
                 
-                let alert = UIAlertController(title: nil, message: LocalizationKeys.updateProfile, preferredStyle: .alert)
+                let alert = UIAlertController(title: "", message: LocalizationKeys.updateProfile, preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: LocalizationKeys.buttonOK, style: .default, handler: { action in
                     self.dismiss(animated: true, completion: nil)

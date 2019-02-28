@@ -1,12 +1,13 @@
 //
-//  RecommendationTableViewController.swift
-//  BrasilNaMao
+//  SettingsTableViewController.swift
+//  KDBrasil
 //
 //  Created by Leandro Oliveira on 2018-12-26.
 //  Copyright © 2018 OliveiraCode Technologies. All rights reserved.
 //
 
 import UIKit
+import MessageUI
 import SWRevealViewController
 
 class SettingsTableViewController: UITableViewController {
@@ -15,6 +16,8 @@ class SettingsTableViewController: UITableViewController {
     //to know more https://medium.com/@mimicatcodes/create-unwind-segues-in-swift-3-8793f7d23c6f
     @IBAction func unWindToSettings(segue:UIStoryboardSegue) {}
     
+    let mailComposerVC = MFMailComposeViewController()
+    let sectionArray:[String] = ["Conta","Sobre","Feedback","Versão 1.0.1"]
     
     let img0:[UIImage] = [UIImage(named: "account_color")!]
     let settings0:[String] = [NSLocalizedString(LocalizationKeys.settingsAccount, comment: "")]
@@ -25,38 +28,38 @@ class SettingsTableViewController: UITableViewController {
                               NSLocalizedString(LocalizationKeys.settingsPrivacy, comment: "")]
     
     let img2:[UIImage] = [UIImage(named: "share_color")!,
-                          UIImage(named: "contact_us_color")!,
-                          UIImage(named: "about_color")!]
+                          UIImage(named: "contact_us_color")!]
     let settings2:[String] = [NSLocalizedString(LocalizationKeys.settingsShare, comment: ""),
-                              NSLocalizedString(LocalizationKeys.settingsContactUs, comment: ""),
-                              NSLocalizedString(LocalizationKeys.settingsAbout, comment: "")]
+                              NSLocalizedString(LocalizationKeys.settingsContactUs, comment: "")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         sideMenus()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     // MARK: - Table view data source
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return self.sectionArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionArray[section]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 0 {
+        
+        switch section {
+        case 0:
             return self.settings0.count
-        } else if section == 1 {
+        case 1:
             return self.settings1.count
-        } else {
+        case 2:
             return self.settings2.count
+        default:
+            return 0
         }
     }
     
@@ -102,10 +105,10 @@ class SettingsTableViewController: UITableViewController {
         if indexPath.section == 1 {
             switch indexPath.row {
             case 0:
-                print("termos de uso")
+                performSegue(withIdentifier: "showTermsOfUseVC", sender: nil)
                 break
             case 1:
-                print("política de privacidade")
+                self.showAlert(title: "", message: General.featureUnavailable)
                 break
             default:
                 print("done")
@@ -115,13 +118,25 @@ class SettingsTableViewController: UITableViewController {
         if indexPath.section == 2 {
             switch indexPath.row {
             case 0:
-                print("compartilhar")
+                let activityViewController = UIActivityViewController(activityItems: [ LocalizationKeys.shareApp ], applicationActivities: nil)
+                
+                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+                
+                // present the view controller
+                self.present(activityViewController, animated: true, completion: nil)
+                
                 break
             case 1:
-                print("fale conosco")
-                break
-            case 2:
-                print("sobre")
+                let subject = "App Brasil na Mão"
+                let body = "Escreva aqui a sua mensagem."
+                let email = "leandro.oliveira@live.com"
+                
+                mailComposerVC.mailComposeDelegate = self
+                mailComposerVC.setToRecipients([email])
+                mailComposerVC.setSubject(subject)
+                mailComposerVC.setMessageBody(body, isHTML: false)
+                self.present(mailComposerVC, animated: true, completion: nil)
+                
                 break
             default:
                 print("done")
@@ -129,16 +144,6 @@ class SettingsTableViewController: UITableViewController {
         }
         
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
     //MARK - SideMenu Method
     func sideMenus() {
@@ -151,6 +156,15 @@ class SettingsTableViewController: UITableViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+    }
+    
+}
+
+extension SettingsTableViewController:MFMailComposeViewControllerDelegate{
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if error == nil {
+            mailComposerVC.dismiss(animated: true, completion: nil)
+        }
     }
     
 }

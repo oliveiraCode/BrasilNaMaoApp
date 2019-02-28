@@ -1,6 +1,6 @@
 //
 //  CreateAccountViewController.swift
-//  BrasilNaMao
+//  KDBrasil
 //
 //  Created by Leandro Oliveira on 2019-01-30.
 //  Copyright © 2019 OliveiraCode Technologies. All rights reserved.
@@ -76,6 +76,7 @@ class CreateAccountViewController: UIViewController {
             self.appDelegate.userObj.password = self.tfPassword.text
             self.appDelegate.userObj.image = self.profileImageView.image
             self.appDelegate.userObj.creationDate = Service.shared.getTodaysDate()
+
             
             FIRFirestoreService.shared.createUser { (error) in
                 if error != nil {

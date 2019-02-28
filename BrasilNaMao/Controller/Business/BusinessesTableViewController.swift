@@ -1,6 +1,6 @@
 //
-//  AdsTableViewController.swift
-//  BrasilNaMao
+//  BusinessesTableViewController.swift
+//  KDBrasil
 //
 //  Created by Leandro Oliveira on 2019-01-04.
 //  Copyright © 2019 OliveiraCode Technologies. All rights reserved.
@@ -8,24 +8,62 @@
 
 import UIKit
 import SWRevealViewController
+import Kingfisher
 
 class BusinessesTableViewController: UITableViewController {
-
-
+    
+    //IBOutlets
     @IBOutlet weak var btnMenu: UIBarButtonItem!
     
+    //Properties
+    var indicator = UIActivityIndicatorView()
+    var businesses = [Business]()
+    var businessIndexPathSelected : Int!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var refreshTableView: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(handleRefresh(_:)),
+                                 for: .valueChanged)
+        refreshControl.tintColor = UIColor.blue
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Atualizando")
+        
+        return refreshControl
+    }()
+    
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        
+        updateTableViewWithDataFromFirebase()
+        refreshTableView.endRefreshing()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        sideMenus()
+        self.tableView.refreshControl = refreshTableView
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let nibName = UINib(nibName: "BusinessCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: "BusinessCell")
+        
+        sideMenus()
+        activityIndicator()
+        updateTableViewWithDataFromFirebase()
+        
+    }
+    
+    func updateTableViewWithDataFromFirebase(){
+        
+        indicator.startAnimating()
+        FIRFirestoreService.shared.readMyBusinesses { (business, error) in
+            if business as? [Business] == nil {
+                self.businesses.removeAll()
+            }else{
+                self.businesses = business as! [Business]
+            }
+            self.tableView.reloadData()
+        }
+        indicator.stopAnimating()
     }
     
     
@@ -49,72 +87,119 @@ class BusinessesTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.businesses.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessCell", for: indexPath) as! BusinessCell
+        
+        if self.businesses.count > 0 {
+            
+            cell.lbAddress.text = self.businesses[indexPath.row].address?.city!
+            
+            cell.lbCategory.text = self.businesses[indexPath.row].category
+            cell.lbName.text = self.businesses[indexPath.row].name
+            cell.ratingCosmosView.rating = self.businesses[indexPath.row].rating!
+            
+            cell.imgLogo.kf.setImage(
+                with: URL(string: self.businesses[indexPath.row].photosURL![0]),
+                placeholder: UIImage(named: Placeholders.placeholder_photo),
+                options: [
+                    .transition(.fade(1)),
+                    .cacheOriginalImage
+                ])
+            
+            cell.lbDistance.text = String(format:"%.2f km ",(businesses[indexPath.row].address?.distance)!)
+            
+        }
         return cell
     }
-    */
-
-    /*
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        businessIndexPathSelected = indexPath.row
+        performSegue(withIdentifier: "showDetailsBusinessVC", sender: nil)
+    }
+    
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
+    
+    
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Deletar") { (contextualAction, view, success) in
+            
+            //remove photos from storage
+            FIRFirestoreService.shared.removeMyBusinessStorage(business: self.businesses[indexPath.row])
+            
+            //remove business from database
+            FIRFirestoreService.shared.removeMyBusinessData(business: self.businesses[indexPath.row])
+            
+            //remove business from TableView
+            self.businesses.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            
+            success(true)
+        }
+        
+        
+        
+        let editAction = UIContextualAction(style: .normal, title: "Editar") { (contextualAction, view, success) in
+            
+            self.businessIndexPathSelected = indexPath.row
+            self.performSegue(withIdentifier: "showEditBusinessVC", sender: nil)
+            
+            success(false)
+        }
+        
+        
+        //set color and image
+        deleteAction.image = UIImage(named: "trash")
+        deleteAction.backgroundColor = .red
+        editAction.image = UIImage(named: "edit_business")
+        editAction.backgroundColor = .blue
+        
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction,editAction])
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showDetailsBusinessVC" {
+            let destController = segue.destination as! DetailsBusinessViewController
+            destController.businessDetails = businesses[businessIndexPathSelected]
+        }
+        
+        if segue.identifier == "showNewBusinessVC" {
+            let navController = segue.destination as! UINavigationController
+            let destController = navController.topViewController as! MyBusinessViewController
+            destController.isNewBusiness = true
+        }
+        
+        if segue.identifier == "showEditBusinessVC" {
+            let navController = segue.destination as! UINavigationController
+            let destController = navController.topViewController as! MyBusinessViewController
+            destController.businessDetails = businesses[businessIndexPathSelected]
+            destController.isNewBusiness = false
+        }
     }
-    */
     
     //MARK - SideMenu Method
     func sideMenus() {
@@ -128,5 +213,14 @@ class BusinessesTableViewController: UITableViewController {
         }
         
     }
-
+    
+    //MARK: - Activity Indicator
+    func activityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        indicator.style = .gray
+        indicator.center = self.view.center
+        indicator.hidesWhenStopped = true
+        self.view.addSubview(indicator)
+    }
+    
 }

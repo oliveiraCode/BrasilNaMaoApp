@@ -1,6 +1,6 @@
 //
 //  MenuViewController.swift
-//  BrasilNaMao
+//  KDBrasil
 //
 //  Created by Leandro Oliveira on 2018-12-26.
 //  Copyright © 2018 OliveiraCode Technologies. All rights reserved.
@@ -23,16 +23,6 @@ class  MenuViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let nameMenu:[String] = [NSLocalizedString(LocalizationKeys.menuHome, comment: ""),
                              NSLocalizedString(LocalizationKeys.menuSettings, comment: "")]
-    
-    
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent //StatusBar white
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     
     override func viewWillAppear(_ animated: Bool) {

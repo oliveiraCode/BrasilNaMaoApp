@@ -1,6 +1,6 @@
 //
 //  DetailsBusinessViewController.swift
-//  BrasilNaMao
+//  KDBrasil
 //
 //  Created by Leandro Oliveira on 2019-01-30.
 //  Copyright © 2019 OliveiraCode Technologies. All rights reserved.
@@ -10,6 +10,7 @@ import UIKit
 import Cosmos
 import MapKit
 import CoreLocation
+import KRProgressHUD
 
 class DetailsBusinessViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,MKMapViewDelegate {
     
@@ -22,16 +23,37 @@ class DetailsBusinessViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var tvDescription: UITextView!
     @IBOutlet weak var btnEmail: UIButton!
     @IBOutlet weak var btnPhone: UIButton!
-    @IBOutlet weak var btnFacebook: UIButton!
+    @IBOutlet weak var btnWeb: UIButton!
     @IBOutlet weak var btnWhatsApp: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var map: MKMapView!
-    
+    @IBOutlet weak var userNameAndMember: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var lbMonday: UILabel!
+    @IBOutlet weak var lbTuesday: UILabel!
+    @IBOutlet weak var lbWednesday: UILabel!
+    @IBOutlet weak var lbThursday: UILabel!
+    @IBOutlet weak var lbFriday: UILabel!
+    @IBOutlet weak var lbSaturday: UILabel!
+    @IBOutlet weak var lbSunday: UILabel!
+    @IBOutlet weak var lbOpenedClosed1: UILabel!
+    @IBOutlet weak var lbOpenedClosed2: UILabel!
     
     //Properties
     var businessDetails = Business()
+    var lbWeekArray:[UILabel?] = []
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        lbWeekArray.append(lbMonday)
+        lbWeekArray.append(lbTuesday)
+        lbWeekArray.append(lbWednesday)
+        lbWeekArray.append(lbThursday)
+        lbWeekArray.append(lbFriday)
+        lbWeekArray.append(lbSaturday)
+        lbWeekArray.append(lbSunday)
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -42,20 +64,120 @@ class DetailsBusinessViewController: UIViewController, UICollectionViewDelegate,
         tvDescription.layer.borderWidth = 0.6
         tvDescription.layer.borderColor = UIColor.gray.cgColor
         
+        userImage.layer.cornerRadius = userImage.bounds.height / 2
+        userImage.clipsToBounds = true
+        
     }
     
     //MARK - Set values to UI
     func setValuesToUI(){
-
+        
+        FIRFirestoreService.shared.getDataFromUserBusiness(idUser: businessDetails.user_id!) { (user, error) in
+            if error == nil {
+                
+                self.userNameAndMember.text = "\(user!.firstName!) é membro desde \(user!.creationDate!)"
+                self.userImage.image = user?.image
+                
+            }
+        }
+        
+        for (_, dayOfWeek) in (businessDetails.hours?.enumerated())!{
+            
+            if dayOfWeek.is_closed! {
+                lbWeekArray[dayOfWeek.day!]?.text = "Fechado"
+                lbWeekArray[dayOfWeek.day!]?.textColor = UIColor.red
+            } else if dayOfWeek.is_overnight! {
+                lbWeekArray[dayOfWeek.day!]?.text = "24 horas"
+                lbWeekArray[dayOfWeek.day!]?.textColor = UIColor.black
+            } else {
+                lbWeekArray[dayOfWeek.day!]?.text = dayOfWeek.start! + " - " + dayOfWeek.end!
+                lbWeekArray[dayOfWeek.day!]?.textColor = UIColor.black
+            }
+            
+        }
+        
+        let dateFormatter = DateFormatter()
+        let weekFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        weekFormatter.dateFormat = "EEEE"
+        weekFormatter.locale = Locale(identifier: "pt_BR")
+        
+        let currentHour = dateFormatter.string(from: Date())
+        let currentDayOfWeek = weekFormatter.string(from: Date())
+        
+        let dayCode:Int?
+        switch currentDayOfWeek {
+        case "segunda-feira":
+            dayCode = 0
+        case "terça-feira":
+            dayCode = 1
+        case "quarta-feira":
+            dayCode = 2
+        case "quinta-feira":
+            dayCode = 3
+        case "sexta-feira":
+            dayCode = 4
+        case "sábado":
+            dayCode = 5
+        default:
+            dayCode = 6
+        }
+        
+        for (_, dayOfWeek) in (businessDetails.hours?.enumerated())!{
+            if dayOfWeek.day == dayCode {
+                
+                
+                if dayOfWeek.is_overnight! || (currentHour >= dayOfWeek.start! && currentHour <= dayOfWeek.end!) {
+                    lbOpenedClosed1.text = "Aberto"
+                    lbOpenedClosed1.textColor = UIColor.green
+                    lbOpenedClosed2.text = "Aberto"
+                    lbOpenedClosed2.textColor = UIColor.green
+                } else if dayOfWeek.is_closed! {
+                    lbOpenedClosed1.text = "Fechado"
+                    lbOpenedClosed1.textColor = UIColor.red
+                    lbOpenedClosed2.text = "Fechado"
+                    lbOpenedClosed2.textColor = UIColor.red
+                } else if dayOfWeek.start! == "-" && dayOfWeek.end! == "-" {
+                    lbOpenedClosed1.text = "Indisponível"
+                    lbOpenedClosed1.textColor = UIColor.black
+                    lbOpenedClosed2.text = "Indisponível"
+                    lbOpenedClosed2.textColor = UIColor.black
+                } else {
+                    lbOpenedClosed1.text = "Fechado"
+                    lbOpenedClosed1.textColor = UIColor.red
+                    lbOpenedClosed2.text = "Fechado"
+                    lbOpenedClosed2.textColor = UIColor.red
+                }
+            }
+        }
+        
+        
+        
+        if  businessDetails.contact?.whatsapp != "" {
+            self.btnWhatsApp.isEnabled = true
+            self.btnWhatsApp.setTitle(businessDetails.contact?.whatsapp, for: .normal)
+        } 
+        
+        if  businessDetails.contact?.email != "" {
+            self.btnEmail.isEnabled = true
+            self.btnEmail.setTitle(businessDetails.contact?.email, for: .normal)
+        }
+        
+        if  businessDetails.contact?.phone != "" {
+            self.btnPhone.isEnabled = true
+            self.btnPhone.setTitle(businessDetails.contact?.phone, for: .normal)
+        }
+        
+        if  businessDetails.contact?.web != "" {
+            self.btnWeb.isEnabled = true
+            self.btnWeb.setTitle(businessDetails.contact?.web, for: .normal)
+        }
+        
         self.lbName.text = businessDetails.name
         self.cvRating.rating = businessDetails.rating!
         self.lbCategory.text = businessDetails.category
         self.lbAddress.text = getAddressFormatted()
         self.tvDescription.text = businessDetails.description
-        self.btnEmail.setTitle(businessDetails.contact?.email, for: .normal)
-        self.btnPhone.setTitle(businessDetails.contact?.phone, for: .normal)
-        self.btnWhatsApp.setTitle(businessDetails.contact?.whatsapp, for: .normal)
-        self.btnFacebook.setTitle(businessDetails.contact?.web, for: .normal)
         self.pageControl.numberOfPages = 3
         
     }
@@ -63,13 +185,14 @@ class DetailsBusinessViewController: UIViewController, UICollectionViewDelegate,
     
     private func getAddressFormatted() -> String {
         
+        let number = (businessDetails.address?.number)!
         let street = (businessDetails.address?.street)!
         let complement = (businessDetails.address?.complement)!
         let city = (businessDetails.address?.city)!
         let province = (businessDetails.address?.province?.uppercased())!
         let postalCode = (businessDetails.address?.postalCode?.uppercased())!
         
-        return "\(street) \(complement), \(city), \(province) \(postalCode)"
+        return "\(number) \(street) \(complement), \(city), \(province) \(postalCode)"
     }
     
     //MARK - Set annotations on the map
@@ -99,21 +222,13 @@ class DetailsBusinessViewController: UIViewController, UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionDetailsBusinessCell", for: indexPath) as! DetailsBusinessCollectionViewCell
         
-        FIRFirestoreService.shared.readImageFromStorage(business: self.businessDetails, indexImage: indexPath.item+1) { (url, error) in
-            
-            cell.imageCellBusiness.kf.setImage(
-                with: url,
-                placeholder: UIImage(named: Placeholders.placeholder_photo),
-                options: [
-                    .transition(.fade(1)),
-                    .cacheOriginalImage
-                ])
-            
-        }
-        
-        //image corner with some radius
-        cell.contentView.layer.cornerRadius = 10
-        cell.contentView.clipsToBounds = true
+        cell.imageCellBusiness.kf.setImage(
+            with: URL(string: self.businessDetails.photosURL![indexPath.item]),
+            placeholder: UIImage(named: Placeholders.placeholder_photo),
+            options: [
+                .transition(.fade(1)),
+                .cacheOriginalImage
+            ])
         
         return cell
     }
@@ -122,10 +237,6 @@ class DetailsBusinessViewController: UIViewController, UICollectionViewDelegate,
         pageControl.currentPage = indexPath.item
     }
     
-    
-    @IBAction func btnBack(_ sender: Any) {
-        performSegue(withIdentifier: "unWindToListVC", sender: nil)
-    }
     
     @IBAction func btnPhone(_ sender: UIButton) {
         guard let phoneNumber = sender.titleLabel?.text else {return}
@@ -169,10 +280,15 @@ class DetailsBusinessViewController: UIViewController, UICollectionViewDelegate,
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             } else {
-               self.showAlert(title: General.warning, message: CommonWarning.errorWebSite)
+                self.showAlert(title: General.warning, message: CommonWarning.errorWebSite)
             }
         }
         
     }
     
+    
+    @IBAction func btnNextVersion(_ sender: Any) {
+        KRProgressHUD.showMessage(General.featureUnavailable)
+    }
 }
+

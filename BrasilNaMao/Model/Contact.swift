@@ -1,6 +1,6 @@
 //
 //  Contact.swift
-//  BrasilNaMao
+//  KDBrasil
 //
 //  Created by Leandro Oliveira on 2018-12-26.
 //  Copyright © 2018 OliveiraCode Technologies. All rights reserved.
@@ -22,4 +22,18 @@ class Contact:Codable {
     }
     
     init() {}
+    
+    
+    convenience init?(data: [String: Any]) {
+        
+        guard let email = data["email"] as? String,
+            let phone = data["phone"] as? String,
+            let whatsapp = data["whatsapp"] as? String,
+            let web = data["web"] as? String else {
+                return nil
+        }
+        
+        self.init(email: email, phone: phone, whatsapp: whatsapp, web: web)
+    }
+    
 }
